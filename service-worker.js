@@ -1,5 +1,5 @@
 const welcomePage = 'sidepanels/welcome-sp.html';
-const mainPage = 'sidepanels/main-sp.html';
+const mainPage = 'sidepanels/calendar.html';
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.sidePanel.setOptions({ path: welcomePage });
