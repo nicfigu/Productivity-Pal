@@ -5,7 +5,8 @@
     "description": "TimeWell is your all-in-one Chrome extension for efficient schedule management, insightful time tracking, personalized wellness tips, and effortless inputting with AI integration. Plan your day seamlessly, track your time accurately, and receive wellness reminders—all within your browser toolbar. With TimeWell, enhance productivity, prioritize well-being, and simplify your daily routine with ease.",
     "permissions": [
       "tabs",
-      "sidePanel"
+      "sidePanel",
+      "notifications"
     ],
     "icons": {
     "16": "images/icon-16.png",

@@ -10,8 +10,20 @@ chrome.runtime.onInstalled.addListener(() => {
     title: 'Open side panel',
     contexts: ['all']
   });
+  notification();
 });
 
+function notification(){
+  chrome.notificatinos.create(
+    {
+      title: 'ProdPal',
+      message: 'Drink Water dummas!',
+      iconUrl: 'images/icon-16.png',
+      type: 'basic'
+    }
+  )
+
+}
 /*chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === 'openSidePanel') {
     // This will open the panel in all the pages on the current window.
