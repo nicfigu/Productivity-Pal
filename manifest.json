@@ -14,6 +14,6 @@
     },
     "action": {
     "default_title": "Click to open panel",
-    "default_popup": "welcome-sp.html"
+    "default_popup": "sidepanels\\welcome-sp.html"
     }
   }
