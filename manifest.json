@@ -13,6 +13,7 @@
     "128": "images/icon-128.png"
     },
     "action": {
-    "default_title": "Click to open panel"
+    "default_title": "Click to open panel",
+    "default_popup": "welcome-sp.html"
     }
   }
