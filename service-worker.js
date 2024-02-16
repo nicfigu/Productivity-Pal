@@ -1,18 +1,5 @@
 const welcomePage = 'sidepanels/welcome-sp.html';
 const mainPage = 'sidepanels/calendar.html';
-
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.sidePanel.setOptions({ path: welcomePage });
-});
-
-chrome.tabs.onActivated.addListener(async ({ tabId }) => {
-  const { path } = await chrome.sidePanel.getOptions({ tabId });
-  if (path === welcomePage) {
-    chrome.sidePanel.setOptions({ path: mainPage });
-  }
-});
-const GOOGLE_ORIGIN = 'https://www.google.com';
-
 // Allows users to open the side panel by clicking on the action toolbar icon
 chrome.sidePanel
   .setPanelBehavior({ openPanelOnActionClick: true })
@@ -31,3 +18,14 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     chrome.sidePanel.open({ windowId });
   }
 });
+
+/*chrome.runtime.onInstalled.addListener(() => {
+    chrome.sidePanel.setOptions({ path: welcomePage });
+  });
+  
+  chrome.tabs.onActivated.addListener(async ({ tabId }) => {
+    const { path } = await chrome.sidePanel.getOptions({ tabId });
+    if (path === welcomePage) {
+      chrome.sidePanel.setOptions({ path: mainPage });
+    }
+  });*/
