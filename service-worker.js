@@ -1,4 +1,4 @@
-const welcomePage = 'sidepanels/welcome-sp.html';
+/*const welcomePage = 'sidepanels/welcome-sp.html';
 const mainPage = 'sidepanels/calendar.html';
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -10,8 +10,8 @@ chrome.tabs.onActivated.addListener(async ({ tabId }) => {
   if (path === welcomePage) {
     chrome.sidePanel.setOptions({ path: mainPage });
   }
-});
-/*const GOOGLE_ORIGIN = 'https://www.google.com';
+});*/
+const GOOGLE_ORIGIN = 'https://www.google.com';
 
 // Allows users to open the side panel by clicking on the action toolbar icon
 chrome.sidePanel
@@ -30,4 +30,4 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     // This will open the panel in all the pages on the current window.
     chrome.sidePanel.open({ windowId: tab.windowId });
   }
-});*/
+});
