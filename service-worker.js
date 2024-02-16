@@ -1,4 +1,4 @@
-/*const welcomePage = 'sidepanels/welcome-sp.html';
+const welcomePage = 'sidepanels/welcome-sp.html';
 const mainPage = 'sidepanels/calendar.html';
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -10,7 +10,7 @@ chrome.tabs.onActivated.addListener(async ({ tabId }) => {
   if (path === welcomePage) {
     chrome.sidePanel.setOptions({ path: mainPage });
   }
-});*/
+});
 const GOOGLE_ORIGIN = 'https://www.google.com';
 
 // Allows users to open the side panel by clicking on the action toolbar icon
