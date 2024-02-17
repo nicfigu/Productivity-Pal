@@ -19,6 +19,6 @@
     "default_popup": "sidepanels\\welcome-sp.html"
     },
     "background": {
-    	"service_worker": "sidepanels\\service_worker.js"
+    	"service_worker": "service_worker.js"
     }
 }
