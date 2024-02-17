@@ -14,14 +14,14 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 function notification(){
-  chrome.notificatinos.create(
+  chrome.notificatinos.create(' ',
     {
       title: 'ProdPal',
       message: 'Drink Water dummas!',
       iconUrl: 'images/icon-16.png',
       type: 'basic'
     }
-  )
+  );
 
 }
 /*chrome.contextMenus.onClicked.addListener((info, tab) => {
