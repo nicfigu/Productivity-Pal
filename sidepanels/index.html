@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        main {
+            min-width: 30rem;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border: 2px solid var(--bs-primary);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="container-fluid py-4">
+
+
+        <form class="d-flex align-items-center mb-4" id="add-task">
+            <input class="form-control form-control-sm me-2" type="text" placeholder="Add Task" id="task" required
+                autocomplete="off">
+            <button class="btn btn-sm btn-primary" type="submit">&#10010;</button>
+        </form>
+
+        <ul class="list-group small" id="tasks">
+        </ul>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
