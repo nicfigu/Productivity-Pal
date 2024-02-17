@@ -8,7 +8,9 @@
       "sidePanel",
       "storage",
       "unlimitedStorage",
-      "alarms"
+      "alarms",
+      "background",
+      "scripting"
     ],
     "icons": {
     "16": "images/icon-16.png",
@@ -17,10 +19,10 @@
     },
     "action": {
     "default_title": "Click to open panel",
-    "default_popup": "sidepanels\\index.html",
+    "default_popup": "sidepanels\\index.html"
+    },
     "background": {
     	"service_worker": "background.js"
- }
     }
   }
   
