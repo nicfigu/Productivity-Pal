@@ -17,7 +17,10 @@
     },
     "action": {
     "default_title": "Click to open panel",
-    "default_popup": "sidepanels\\index.html"
+    "default_popup": "sidepanels\\index.html",
+    "background": {
+    	"service_worker": "background.js"
+ }
     }
   }
   
