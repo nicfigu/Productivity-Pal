@@ -13,7 +13,8 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   });
   
   chrome.alarms.create('WATER', {
-    when: Date.now(),
+    //when: Date.now(),
+    delayInMinutes: 1,
     periodInMinutes: 1
   });
 
