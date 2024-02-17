@@ -7,7 +7,8 @@
       "tabs",
       "sidePanel",
       "notifications",
-      "alarms"
+      "alarms",
+      "background"
     ],
     "icons": {
     "16": "images/icon-16.png",
@@ -19,6 +20,6 @@
     "default_popup": "sidepanels\\welcome-sp.html"
     },
     "background": {
-    	"service_worker": "service_worker.js"
+    	"service_worker": "background.js"
     }
 }
