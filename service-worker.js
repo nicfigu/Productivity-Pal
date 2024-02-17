@@ -11,9 +11,15 @@ chrome.runtime.onInstalled.addListener(() => {
     contexts: ['all']
   });
 });
-notification();
-function notification(){
-  chrome.notifications.create(' ',
+
+chrome.alarms.create('WATER', {
+  when: Date.now(),
+  periodInMinutes: 1
+});
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === "WATER") {
+    chrome.notifications.create('WATER',
     {
       title: 'ProdPal',
       message: 'Drink Water dummas!',
@@ -22,7 +28,8 @@ function notification(){
     }
   );
 
-}
+  }
+});
 /*chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === 'openSidePanel') {
     // This will open the panel in all the pages on the current window.

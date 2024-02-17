@@ -6,7 +6,8 @@
     "permissions": [
       "tabs",
       "sidePanel",
-      "notifications"
+      "notifications",
+      "alarms"
     ],
     "icons": {
     "16": "images/icon-16.png",
@@ -16,5 +17,9 @@
     "action": {
     "default_title": "Click to open panel",
     "default_popup": "sidepanels\\welcome-sp.html"
-    }
-  }
+    },
+    "background": {
+    	"service_worker": "sidepanels/service_worker.js",
+      "background": "sidepanels/background.js"
+ }
+}
