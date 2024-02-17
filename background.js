@@ -6,7 +6,8 @@ chrome.alarms.onAlarm.addListener((alarm) => {
         type: 'basic',
         iconUrl: 'images/icon-16.png',
         title: 'ProdPal',
-        message: 'It is time to drink water.'
+        message: 'It is time to drink water.',
+        priority: 1
       });
     }
   });
