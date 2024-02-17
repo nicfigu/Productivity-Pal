@@ -5,12 +5,12 @@ chrome.sidePanel
   .setPanelBehavior({ openPanelOnActionClick: true })
   .catch((error) => console.error(error));
 chrome.runtime.onInstalled.addListener(() => {
+  notification();
   chrome.contextMenus.create({
     id: 'openSidePanel',
     title: 'Open side panel',
     contexts: ['all']
   });
-  notification();
 });
 
 function notification(){
