@@ -15,5 +15,14 @@
     "action": {
     "default_title": "Click to open panel",
     "default_popup": "sidepanels\\welcome-sp.html"
-    }
+    },
+    "oauth2": {
+      "client_id": "5849990744-q1e0oigvta0k5pstruatuej3v3uqbfhr.apps.googleusercontent.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/calendar",
+        "https://www.googleapis.com/auth/calendar.readonly"
+      ]
+    },
+    "key": "AIzaSyC9ZCsRijE5eK9KypMcBz6DGCQqfWYlpnM"
   }
+  
