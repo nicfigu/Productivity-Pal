@@ -14,7 +14,7 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 function notification(){
-  chrome.notificatinos.create(' ',
+  chrome.notifications.create(' ',
     {
       title: 'ProdPal',
       message: 'Drink Water dummas!',
