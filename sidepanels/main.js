@@ -102,6 +102,6 @@ function exportTasks() {
     
     // Write the formatted list to the file
     fs.writeFileSync(joinedString, formattedList);
-    
+     
     console.log(`List has been written to ${filename}`);
 }
