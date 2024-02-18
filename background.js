@@ -9,6 +9,22 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       message: 'It is time to drink water.',
       priority: 1
     });}
+    else if (alarm.name === "15"){
+      chrome.notifications.create('15', {
+        type: 'basic',
+        iconUrl: 'images/icon-16.png',
+        title: 'ProdPal',
+        message: 'There is a task due in 15 minutes!',
+        priority: 1
+      });}
+    else if (alarm.name === "60"){
+        chrome.notifications.create('HOUR', {
+        type: 'basic',
+        iconUrl: 'images/icon-16.png',
+        title: 'ProdPal',
+        message: 'There is a task due in 60 minutes!',
+        priority: 1
+      });}
 });
 
 chrome.alarms.create('WATER', {
