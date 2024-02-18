@@ -80,39 +80,3 @@ const showTasks = () => {
     document.querySelector('ul#tasks').innerHTML = html;
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    // This function is executed when the DOM content is fully loaded
-
-    // Find the button element by its ID
-    const button = document.getElementById('downloadButton');
-
-    // Add an event listener for the button click
-    button.addEventListener('click', exportTasks());
-});
-function exportTasks() {
-    // Convert the array elements to a formatted string
-    const formattedList = tasks.map(item => `- ${item}`).join('\n\n');
-    const currentDate = new Date();
-
-    // Extract date components
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Adding 1 because getMonth() returns zero-based month index
-    const day = String(currentDate.getDate()).padStart(2, '0');
-
-    // Concatenate with the provided string
-    const joinedString = `${'ProdPal'}_${month}/${day}/${year}.txt`;
-    
-    // Write the formatted list to the file
-    const blob = new Blob([formattedList], { type: 'text/plain' });
-
-    // Create a link element to trigger the download
-    const link = document.createElement('a');
-    link.download = joinedString;
-
-    // Create a URL for the Blob and trigger the download
-    link.href = window.URL.createObjectURL(blob);
-    link.click();
-
-    // Clean up by revoking the URL object
-    window.URL.revokeObjectURL(link.href);
-}
