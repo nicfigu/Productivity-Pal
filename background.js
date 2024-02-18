@@ -1,21 +1,20 @@
 /// background.js
 
 chrome.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === "WATER") {
-      chrome.notifications.create('WATER', {
-        type: 'basic',
-        iconUrl: 'images/icon-16.png',
-        title: 'ProdPal',
-        message: 'It is time to drink water.',
-        priority: 1
-      });
-    }
-  });
-  
-  chrome.alarms.create('WATER', {
-    when: Date.now() + 10,
-    periodInMinutes: 1
-  });
+  if (alarm.name === "WATER") {
+    chrome.notifications.create('WAT', {
+      type: 'basic',
+      iconUrl: 'images/icon-16.png',
+      title: 'ProdPal',
+      message: 'It is time to drink water.',
+      priority: 1
+    });}
+});
+
+chrome.alarms.create('WATER', {
+  when: Date.now(),
+  periodInMinutes: 1
+});
 
 /*// Listen for when the extension is installed or updated
 chrome.runtime.onInstalled.addListener(() => {
