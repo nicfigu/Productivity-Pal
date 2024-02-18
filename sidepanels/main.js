@@ -117,9 +117,8 @@ function updateProgressBar() {
                 task.progress = percentageElapsed;
                 // Update the value attribute of the progress element
                 const percentageWidth = percentageElapsed<=100 ?  `${percentageElapsed}%` :  '100%';
-
                 // Apply linear gradient background
-                listItem.style.backgroundImage = `linear-gradient(to right, green ${percentageWidth}, transparent ${percentageWidth})`;
+                task.completed == true ? listItem.style.backgroundImage = `linear-gradient(to right, green ${percentageWidth}, transparent ${percentageWidth})`: listItem.style.backgroundImage = `linear-gradient(to right, red ${percentageWidth}, transparent ${percentageWidth})`;
     }}});
 }
 
@@ -130,6 +129,7 @@ const showTasks = () => {
         tasks.forEach((task, index) => {
             // Determine the text for the button based on the value of data-task-click
             let buttonText = '';
+            let currTimeinMilli = Date.now();
             if (!task.start) {
                 buttonText = 'Start';
             } else {
@@ -139,7 +139,7 @@ const showTasks = () => {
                 <input type="checkbox" class="form-check-input me-2" data-task-id="${index}" ${task.completed ? 'checked' : ''}>
                 <span class="${task.completed ? 'text-decoration-line-through sparkle' : ''}">${task.title}</span>
                 <div class="ms-auto">
-                <button class="btn btn-sm text-success me-1" data-task-start="${index}">${buttonText}</button> <!-- Start button -->
+                ${task.time !== null && task.time > currTimeinMilli ? `<button class="btn btn-sm text-success me-1" data-task-start="${index}">${buttonText}</button>` : ''}
                 <button class="btn btn-sm text-primary me-1" data-task-edit="${index}">&#9998;</button> <!-- Edit button -->
                 <button class="btn btn-sm text-danger fw-bold" data-task-remove="${index}">&#10005;</button> <!-- Remove button -->
                 </div>
