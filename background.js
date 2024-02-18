@@ -2,7 +2,7 @@
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "WATER") {
-    chrome.notifications.create('WAT', {
+    chrome.notifications.create('WATER', {
       type: 'basic',
       iconUrl: 'images/icon-16.png',
       title: 'ProdPal',
@@ -16,15 +16,20 @@ chrome.alarms.create('WATER', {
   periodInMinutes: 20
 });
 
+chrome.alarms.create('BREAK', {
+  when: Date.getTime(),
+  periodInMinutes: 200
+});
+
 /*// Listen for when the extension is installed or updated
 chrome.runtime.onInstalled.addListener(() => {
   // Set the browsing start time when the extension is installed or updated
   const browsingStartTime = new Date().getTime();
   chrome.storage.local.set({ browsingStartTime });
 });
-
+*/
 // Listen for when Chrome is launched
-chrome.runtime.onStartup.addListener(() => {
+/*chrome.runtime.onStartup.addListener(() => {
   // Set the browsing start time when Chrome is launched
   const browsingStartTime = new Date().getTime();
   chrome.storage.local.set({ browsingStartTime });
@@ -41,7 +46,6 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     chrome.storage.local.set({ browsingStartTime });
   }
 });
-
 // Check if 3 hours have elapsed since the user started browsing
 function checkTimeElapsed() {
   // Get the current time
@@ -59,11 +63,10 @@ function checkTimeElapsed() {
       // Send a notification
       chrome.notifications.create('reminderNotification', {
         type: 'basic',
-        iconUrl: 'icon.png',
+        iconUrl: 'images/icon-16.png',
         title: 'Time to take a break!',
         message: 'You have been browsing for 3 hours. Take a break!',
       });
     }
   });
-}
-*/
+}*/
