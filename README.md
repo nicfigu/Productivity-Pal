@@ -1,3 +1,5 @@
+Our HackFax 2024 submission! 
+
 ## Inspiration
 Managing a more than full courseload hasn't been easy. One thing that always bothered me was constantly switching to my calendar tab just to see what I had left to do for the day. We wanted to find a nice solution that follows wherever you go when you're browsing the web!
 ## What it does
