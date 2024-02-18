@@ -148,5 +148,32 @@ const showTasks = () => {
     } else {
         html = `<li class="list-group-item text-secondary text-center">No Tasks</li>`;
     }
+    html+= '<button>'
     document.querySelector('ul#tasks').innerHTML = html;
 };
+
+
+    //fs.writeFile('Output.txt', data, (err) => {
+ 
+    // In case of a error throw err.
+    //if (err) throw err;
+
+const fs = require('fs');
+function exportTasks() {
+    // Convert the array elements to a formatted string
+    const formattedList = tasks.map(item => `- ${item}`).join('\n');
+    const currentDate = new Date();
+
+    // Extract date components
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Adding 1 because getMonth() returns zero-based month index
+    const day = String(currentDate.getDate()).padStart(2, '0');
+
+    // Concatenate with the provided string
+    const joinedString = `${'ProdPal'}_${month}/${day}/${year}.txt`;
+    
+    // Write the formatted list to the file
+    fs.writeFileSync(joinedString, formattedList);
+     
+    console.log(`List has been written to ${filename}`);
+}
