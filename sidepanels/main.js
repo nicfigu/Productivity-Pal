@@ -86,10 +86,9 @@ const showTasks = () => {
     // In case of a error throw err.
     //if (err) throw err;
 
-const fs = require('fs');
 function exportTasks() {
     // Convert the array elements to a formatted string
-    const formattedList = tasks.map(item => `- ${item}`).join('\n');
+    const formattedList = tasks.map(item => `- ${item}`).join('\n\n');
     const currentDate = new Date();
 
     // Extract date components
@@ -101,7 +100,19 @@ function exportTasks() {
     const joinedString = `${'ProdPal'}_${month}/${day}/${year}.txt`;
     
     // Write the formatted list to the file
-    fs.writeFileSync(joinedString, formattedList);
-     
-    console.log(`List has been written to ${filename}`);
+    const blob = new Blob([formattedList], { type: 'text/plain' });
+
+    // Create a link element to trigger the download
+    const link = document.createElement('a');
+    link.download = joinedString;
+
+    // Create a URL for the Blob and trigger the download
+    link.href = window.URL.createObjectURL(blob);
+    link.click();
+
+    // Clean up by revoking the URL object
+    window.URL.revokeObjectURL(link.href);
+}
+function downloadList() {
+    exportTasks();
 }
