@@ -80,12 +80,18 @@ const showTasks = () => {
     document.querySelector('ul#tasks').innerHTML = html;
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+    // This function is executed when the DOM content is fully loaded
 
-    //fs.writeFile('Output.txt', data, (err) => {
- 
-    // In case of a error throw err.
-    //if (err) throw err;
+    // Find the button element by its ID
+    const button = document.getElementById('downloadButton');
 
+    // Add an event listener for the button click
+    button.addEventListener('click', function() {
+        // This function is executed when the button is clicked
+        exportTasks();
+    });
+});
 function exportTasks() {
     // Convert the array elements to a formatted string
     const formattedList = tasks.map(item => `- ${item}`).join('\n\n');
