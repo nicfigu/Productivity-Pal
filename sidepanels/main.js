@@ -113,6 +113,3 @@ function exportTasks() {
     // Clean up by revoking the URL object
     window.URL.revokeObjectURL(link.href);
 }
-function downloadList() {
-    exportTasks();
-}
