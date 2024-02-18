@@ -9,6 +9,7 @@
       "storage",
       "unlimitedStorage",
       "alarms",
+      "notifications",
       "background",
       "scripting"
     ],
@@ -22,7 +23,7 @@
     "default_popup": "sidepanels\\index.html"
     },
     "background": {
-    	"service_worker": "background.js"
+      "service_worker": "background.js"
     }
   }
   
