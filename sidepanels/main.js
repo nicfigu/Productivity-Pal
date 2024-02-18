@@ -76,6 +76,7 @@ const showTasks = () => {
     } else {
         html = `<li class="list-group-item text-secondary text-center">No Tasks</li>`;
     }
+    html+= '<button>'
     document.querySelector('ul#tasks').innerHTML = html;
 };
 
@@ -101,6 +102,6 @@ function exportTasks() {
     
     // Write the formatted list to the file
     fs.writeFileSync(joinedString, formattedList);
-
+    
     console.log(`List has been written to ${filename}`);
 }
