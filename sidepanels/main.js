@@ -1,9 +1,11 @@
-// Initialize tasks array by retrieving it from chrome.storage.sync
 let tasks = [];
 
-chrome.storage.sync.get(['tasks'], (data) => {
-    tasks = data.tasks || [];
-    showTasks();
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize tasks array by retrieving it from chrome.storage.sync
+    chrome.storage.sync.get(['tasks'], (data) => {
+        tasks = data.tasks || [];
+        showTasks();
+    });
 });
 
 // add new tasks
@@ -24,9 +26,16 @@ document.getElementById('add-task').addEventListener('submit', (e) => {
 // Complete, remove, or edit tasks
 document.querySelector('ul#tasks').addEventListener('click', async (e) => {
     const index = e.target.dataset.taskId;
-
     if (index !== undefined) {
         tasks[index].completed = !tasks[index].completed;
+
+        // Toggle sparkle class on the task item
+        const taskItem = document.getElementById(`task-item-${index}`);
+        if (e.target.checked) {
+            taskItem.classList.add('sparkle'); // Adding sparkle class when checkbox is checked
+        } else {
+            taskItem.classList.remove('sparkle'); // Removing sparkle class when checkbox is unchecked
+        }
 
         // Update tasks array in chrome.storage.sync
         chrome.storage.sync.set({ tasks: tasks }, () => {
@@ -61,9 +70,9 @@ const showTasks = () => {
     let html = '';
     if (tasks.length > 0) {
         tasks.forEach((task, index) => {
-            html += `<li class="list-group-item d-flex align-items-center">
+            html += `<li class="list-group-item d-flex align-items-center" id="task-item-${index}">
                 <input type="checkbox" class="form-check-input me-2" data-task-id="${index}" ${task.completed ? 'checked' : ''}>
-                <span class="${task.completed ? 'text-decoration-line-through' : ''}">${task.title}</span>
+                <span class="${task.completed ? 'text-decoration-line-through sparkle' : ''}">${task.title}</span>
                 <div class="ms-auto">
                     <button class="btn btn-sm text-primary me-1" data-task-edit="${index}">&#9998;</button>
                     <button class="btn btn-sm text-danger fw-bold" data-task-remove="${index}">&#10005;</button>

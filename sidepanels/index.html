@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Todo</title>
@@ -9,31 +8,28 @@
         main {
             min-width: 30rem;
         }
-
         .form-control:focus {
             box-shadow: none;
             border: 2px solid var(--bs-primary);
         }
-
+        .sparkle {
+            animation: sparkle 1s infinite;
+        }
+        @keyframes sparkle {
+            0% { color: #ffcc00; }
+            50% { color: #ff6600; }
+            100% { color: #0008ff; }
+        }
     </style>
 </head>
-
 <body>
-
     <main class="container-fluid py-4">
-
-
         <form class="d-flex align-items-center mb-4" id="add-task">
-            <input class="form-control form-control-sm me-2" type="text" placeholder="Add Task" id="task" required
-                autocomplete="off">
+            <input class="form-control form-control-sm me-2" type="text" placeholder="Add Task" id="task" required autocomplete="off">
             <button class="btn btn-sm btn-primary" type="submit">&#10010;</button>
         </form>
-
-        <ul class="list-group small" id="tasks">
-        </ul>
+        <ul class="list-group small" id="tasks"></ul>
     </main>
-
     <script src="main.js"></script>
 </body>
-
 </html>
