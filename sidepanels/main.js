@@ -135,6 +135,7 @@ const showTasks = () => {
             } else {
                 buttonText = 'Pause';
             }
+            if(task.time !== null && task.time < currTimeinMilli) task.completed = 1;
             html += `<li class="list-group-item d-flex align-items-center ${task.time ? 'time-available' : ''}" id="task-item-${index}">
                 <input type="checkbox" class="form-check-input me-2" data-task-id="${index}" ${task.completed ? 'checked' : ''}>
                 <span class="${task.completed ? 'text-decoration-line-through sparkle' : ''}">${task.title}</span>
