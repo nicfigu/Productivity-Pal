@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.storage.sync.get(['tasks'], (data) => {
         tasks = data.tasks || [];
         showTasks();
+        setInterval(showTasks, 10000);
         // Call updateProgressBar periodically to keep the progress bars updated
         setInterval(updateProgressBar, 1000); // Update every 1 seconds
     });
@@ -102,7 +103,7 @@ function getTimeMilliseconds(timeString) {
 
     // Get the number of milliseconds since the Unix Epoch until that time
     return dateWithTime.getTime();
-}
+};
 function updateProgressBar() {
     tasks.forEach((task, index) => {
         const listItem = document.getElementById(`task-item-${index}`);
@@ -115,12 +116,32 @@ function updateProgressBar() {
                 const timeElapsed = deadlineTime - currentTime;
                 const percentageElapsed = 100 - (timeElapsed / totalTime) * 100;
                 task.progress = percentageElapsed;
+                if((timeElapsed <= 60*60*1000+1050) && (timeElapsed >= 60*60*1000-1050)){
+                    //const sString = `Did you start this task? "${task}"\nYou have one hour!`;
+                    sendSFNotif(60);
+                }     
+                if((timeElapsed <= 15*60*1000+1050) && (timeElapsed >= 15*60*1000-1050)){
+                    //const fString = `Are you finishing this task? "${task}"\n15 minutes left!`;
+                    sendSFNotif(15);
+                }                   
+            
                 // Update the value attribute of the progress element
                 const percentageWidth = percentageElapsed<=100 ?  `${percentageElapsed}%` :  '100%';
                 // Apply linear gradient background
                 task.completed == true ? listItem.style.backgroundImage = `linear-gradient(to right, green ${percentageWidth}, transparent ${percentageWidth})`: listItem.style.backgroundImage = `linear-gradient(to right, red ${percentageWidth}, transparent ${percentageWidth})`;
     }}});
-}
+};
+
+function sendSFNotif(time){  
+    if(time == 15)
+    chrome.alarms.create('15', {
+      when: Date.now(),
+    });
+    if(time == 60)
+    chrome.alarms.create('60', {
+        when: Date.now(),
+      });
+  };
 
 // Function to show tasks
 const showTasks = () => {
