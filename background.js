@@ -16,11 +16,11 @@ chrome.alarms.create('WATER', {
   periodInMinutes: 20
 });
 
-chrome.alarms.create('BREAK', {
+/*chrome.alarms.create('BREAK', {
   when: Date.getTime(),
   periodInMinutes: 200
 });
-
+*/
 /*// Listen for when the extension is installed or updated
 chrome.runtime.onInstalled.addListener(() => {
   // Set the browsing start time when the extension is installed or updated
