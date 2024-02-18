@@ -13,7 +13,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 
 chrome.alarms.create('WATER', {
   when: Date.now(),
-  periodInMinutes: 1
+  periodInMinutes: 20
 });
 
 /*// Listen for when the extension is installed or updated
