@@ -31,12 +31,6 @@ document.querySelector('ul#tasks').addEventListener('click', async (e) => {
 
         // Toggle sparkle class on the task item
         const taskItem = document.getElementById(`task-item-${index}`);
-        if (e.target.checked) {
-            taskItem.classList.add('sparkle'); // Adding sparkle class when checkbox is checked
-        } else {
-            taskItem.classList.remove('sparkle'); // Removing sparkle class when checkbox is unchecked
-        }
-
         // Update tasks array in chrome.storage.sync
         chrome.storage.sync.set({ tasks: tasks }, () => {
             showTasks();
