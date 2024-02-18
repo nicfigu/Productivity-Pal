@@ -87,10 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const button = document.getElementById('downloadButton');
 
     // Add an event listener for the button click
-    button.addEventListener('click', function() {
-        // This function is executed when the button is clicked
-        exportTasks();
-    });
+    button.addEventListener('click', exportTasks());
 });
 function exportTasks() {
     // Convert the array elements to a formatted string
