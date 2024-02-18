@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.storage.sync.get(['tasks'], (data) => {
         tasks = data.tasks || [];
         showTasks();
+        updateProgressBar();
         setInterval(showTasks, 10000);
         // Call updateProgressBar periodically to keep the progress bars updated
         setInterval(updateProgressBar, 1000); // Update every 1 seconds
+        
     });
 });
 
